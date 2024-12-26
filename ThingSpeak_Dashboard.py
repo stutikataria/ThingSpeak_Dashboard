@@ -1,3 +1,4 @@
+import os
 import requests
 import dash
 from dash import dcc, html
@@ -84,4 +85,5 @@ def update_graphs(n):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get("PORT", 8050))  # Get the PORT from the environment or default to 8050
+    app.run_server(debug=True, host="0.0.0.0", port=port)
